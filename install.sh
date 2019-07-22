@@ -102,6 +102,8 @@ pacman --noconfirm -S \
 	lib32-libpulse \
 	pulseaudio-alsa \
 	sudo \
+	xorg-xrandr \
+	xorg-xset \
 	python \
 	efibootmgr \
 	grub \
