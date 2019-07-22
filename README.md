@@ -47,7 +47,7 @@ out of the box support for playing NES, SNES, Genesis, N64, PlayStation, Wii, St
  - run `./install.sh <target device>`; for a list of installation targets run `lsblk`
  - once setup is complete, restart the computer
  - after restarting you will be presented with the SteamOS setup wizard and then Steam will start in big picture mode
- - you can open a terminal by using the keyboard combination `ctrl + alt + f2` and log in with username `gamer` and password `gamer`; switch back to big picture mode by pressing `ctrl + alt + f7`
+ - you can open a terminal by using the keyboard combination `ctrl + alt + f2` and log in with username `gamer` and password `gamer`; switching back to big picture mode by pressing `ctrl + alt + f7` however doesn't work, use `chvt 7` instead.
 
 
 ## Discord
