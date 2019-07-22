@@ -1,3 +1,5 @@
+# NOTE: This repo is just for my own usage. The real development happens here: https://github.com/gamer-os/gamer-os 
+
 # gamerOS: the definitive couch gaming experience
 
 ## What is it?
@@ -40,7 +42,7 @@ out of the box support for playing NES, SNES, Genesis, N64, PlayStation, Wii, St
  - [download](https://www.archlinux.org/download) and boot into the Arch Linux installer
  - make sure you are connected to the internet, consult the [Arch Linux Wiki](https://wiki.archlinux.org/index.php/Network_configuration) for help
  - download the gamerOS install script with the following command:
-	`wget https://raw.githubusercontent.com/alkazar/gamer-os/master/install.sh`
+	`wget https://raw.githubusercontent.com/dubigrasu/gamer-os/master/install.sh`
  - set executable permissions: `chmod +x install.sh`
  - run `./install.sh <target device>`; for a list of installation targets run `lsblk`
  - once setup is complete, restart the computer
