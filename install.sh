@@ -71,6 +71,7 @@ fi
 # chroot into target
 pacstrap ${MOUNT_PATH} base
 arch-chroot ${MOUNT_PATH} /bin/bash <<EOF
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 
@@ -88,7 +89,9 @@ pacman --noconfirm -Sy
 
 # basic package installation
 pacman --noconfirm -S \
-	lightdm \
+	lightdm=gtk=greeter \
+	gnome \
+	gnome-extra \
 	accountsservice \
 	xorg-server \
 	bluez \
@@ -177,15 +180,6 @@ groupadd -r autologin
 useradd -m ${USERNAME} -G autologin,wheel
 echo "${USERNAME}:${USERNAME}" | chpasswd
 echo "${USERNAME}   ALL=(ALL) ALL" >> /etc/sudoers
-
-echo "
-[LightDM]
-run-directory=/run/lightdm
-[Seat:*]
-session-wrapper=/etc/lightdm/Xsession
-autologin-user=${USERNAME}
-autologin-session=steamos
-" > /etc/lightdm/lightdm.conf
 
 echo "
 polkit.addRule(function(action, subject) {
