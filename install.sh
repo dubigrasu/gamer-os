@@ -89,7 +89,7 @@ pacman --noconfirm -Sy
 
 # basic package installation
 pacman --noconfirm -S \
-	lightdm=gtk=greeter \
+	lightdm-gtk-greeter \
 	gnome \
 	gnome-extra \
 	accountsservice \
@@ -108,8 +108,10 @@ pacman --noconfirm -S \
 	xorg-xrandr \
 	xorg-xset \
 	python \
+	qt5-svg \
 	efibootmgr \
 	grub \
+	mesa-demos \
 	steam
 
 systemctl enable NetworkManager lightdm bluetooth
@@ -122,7 +124,8 @@ if [ "$GPU" = "nvidia" ]; then
 		opencl-nvidia \
 		lib32-opencl-nvidia \
 		nvidia-utils \
-		lib32-nvidia-utils
+		lib32-nvidia-utils \
+		vulkan-tools
 elif [ "$GPU" = "amd_radeon" ]; then
 	echo "AMD graphics card with radeon kernel module detected, switching kernel module and installing drivers..."
 	echo "blacklist radeon" >> /etc/modprobe.d/gameros.conf
@@ -135,6 +138,7 @@ elif [ "$GPU" = "amd_radeon" ]; then
 		lib32-vulkan-icd-loader \
 		libva-mesa-driver \
 		lib32-libva-mesa-driver \
+		vulkan-tools \
 		mesa-vdpau \
 		lib32-mesa-vdpau \
 		vulkan-radeon \
@@ -147,6 +151,7 @@ elif [ "$GPU" = "amdgpu" ]; then
 		lib32-vulkan-icd-loader \
 		libva-mesa-driver \
 		lib32-libva-mesa-driver \
+		vulkan-tools \
 		mesa-vdpau \
 		lib32-mesa-vdpau \
 		vulkan-radeon \
@@ -165,6 +170,7 @@ elif [ "$GPU" = "intel" ]; then
 		lib32-vulkan-intel \
 		libva-intel-driver \
 		lib32-libva-intel-driver \
+		vulkan-tools \
 		xf86-video-intel \
 		intel-media-driver
 fi
